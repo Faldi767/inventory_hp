@@ -13,7 +13,7 @@
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="{{ asset('/css/bootstrap-4.min.css') }}">
   <!-- pace-progress -->
-  <link rel="stylesheet" href="{{ asset('/css/pace-theme-flash.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/pace-theme-minimal.css') }}">
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('/css/dataTables.bootstrap4.css') }}">
   <!-- Tempusdominus Bbootstrap 4 -->
@@ -191,7 +191,7 @@
     <strong>Copyright &copy; {{ date('Y') }} <a href="https://github.com/Faldi767">Muhammad Rifaldi Akbar</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.0.5
+      <b>Version</b> 0.0.7
     </div>
   </footer>
 

@@ -9,16 +9,32 @@
             <!-- general form elements -->
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h3 class="card-title">Tambah Role</h3>
+                <h3 class="card-title">Tambah Client</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="/role/store" id="tambah">
+              <form method="post" action="/client/store" id="tambah">
               {{ csrf_field() }}
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="nama_role">Nama Role</label>
-                        <input type="text" class="form-control" id="nama_role" name="nama_role" placeholder="Enter role name">
+                        <label for="user_nama">Nama Client</label>
+                        <input type="text" class="form-control" id="user_nama" name="user_nama" placeholder="Enter client name">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select class="form-control" name="role_id">
+                            @foreach($role as $r)
+                                <option value="{{ $r->id }}">{{ $r->nama_role }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <!-- /.card-body -->

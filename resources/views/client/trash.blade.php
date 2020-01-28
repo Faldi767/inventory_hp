@@ -6,11 +6,11 @@
         <div class="col-12">
           <div class="card card-primary card-outline">
             <div class="card-header">
-              <h3 class="card-title">Data Role</h3>
+              <h3 class="card-title">Data Client</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <a href="/role" class="btn btn-primary">Data Role</a>
+                <a href="/client" class="btn btn-primary">Data Client</a>
                 <button type="button" onclick="restoreall()" class="btn btn-success">Restore All</button>
                 <button type="button" onclick="hapusall()" class="btn btn-danger">Hapus Semua</button>
                 <br>
@@ -18,25 +18,31 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nama Role</th>
-                  <th>Action</th>
+                    <th>Nama Client</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($role as $r)
+                @foreach($client as $c)
                   <tr>
-                      <td>{{ $r->nama_role }}</td>
+                      <td>{{ $c->user_nama }}</td>
+                      <td>{{ $c->username }}</td>
+                      <td>{{ $c->role->nama_role }}</td>
                       <td>
-                          <button type="button" onclick="restoreConfirm({{ $r->id }})" class="btn btn-success">Restore</button>
-                          <button type="button" onclick="deleteConfirm({{ $r->id }})" class="btn btn-danger">Hapus Permanen</button>
+                          <button type="button" onclick="restoreConfirm({{ $c->id }})" class="btn btn-success">Restore</button>
+                          <button type="button" onclick="deleteConfirm({{ $c->id }})" class="btn btn-danger">Hapus Permanen</button>
                       </td>
                   </tr>
                 @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Nama Role</th>
-                  <th>Action</th>
+                    <th>Nama Client</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Action</th>
                 </tr>
                 </tfoot>
               </table>

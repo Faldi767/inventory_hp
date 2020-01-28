@@ -4,20 +4,21 @@
     <section class="content">
       <div class="row">
         <div class="col-12">
-          <div class="card">
+          <div class="card card-primary card-outline">
             <div class="card-header">
               <h3 class="card-title">Data Client</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <a href="/role/tambah" class="btn btn-primary">Tambah Data</a>
-                <a href="/role/trash" class="btn btn-primary">Tong Sampah</a>
+                <a href="/client/tambah" class="btn btn-primary">Tambah Data</a>
+                <a href="/client/trash" class="btn btn-primary">Tong Sampah</a>
                 <br>
                 <br>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Nama Client</th>
+                  <th>Username</th>
                   <th>Role</th>
                   <th>Action</th>
                 </tr>
@@ -26,9 +27,10 @@
                 @foreach($client as $c)
                   <tr>
                       <td>{{ $c->user_nama }}</td>
+                      <td>{{ $c->username }}</td>
                       <td>{{ $c->role->nama_role }}</td>
                       <td>
-                          <a href="/role/edit/{{ $c->id }}" class="btn btn-warning">Edit</a>
+                          <a href="/client/edit/{{ $c->id }}" class="btn btn-warning">Edit</a>
                           <button onclick="deleteConfirm({{ $c->id }})" class="btn btn-danger">Hapus</button>
                       </td>
                   </tr>
@@ -36,8 +38,10 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Nama Role</th>
-                  <th>Action</th>
+                    <th>Nama Client</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Action</th>
                 </tr>
                 </tfoot>
               </table>
@@ -72,7 +76,7 @@
     Swal.fire({
       title: 'Are you sure?',
       text: "You still able to restore data from trash.",
-      icon: 'warning',
+      type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
@@ -97,7 +101,7 @@
           }
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
-            window.location.href = "role/hapus/" + id;
+            window.location.href = "client/hapus/" + id;
           }
         })
       }
@@ -109,7 +113,7 @@
     $("#example1").DataTable({
       "paging": true,
       "lengthChange": true,
-      "searching": false,
+      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": false,
