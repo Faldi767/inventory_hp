@@ -13,18 +13,9 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="/role/store">
+              <form method="post" action="/role/store" id="tambah">
               {{ csrf_field() }}
                 <div class="card-body">
-                    @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h5><i class="icon fas fa-exclamation-triangle"></i> Error</h5>
-                            @if ($errors->has('nama_role'))
-                                {{ $errors->first('nama_role') }}
-                            @endif
-                        </div>
-                    @endif
                     <div class="form-group">
                         <label for="nama_role">Nama Role</label>
                         <input type="text" class="form-control" id="nama_role" name="nama_role" placeholder="Enter role name">
@@ -32,7 +23,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Simpan</button>
+                  <button type="button" onclick="submitform()" class="btn btn-primary">Simpan</button>
                 </div>
               </form>
             </div>
@@ -44,4 +35,44 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+@endsection
+@section('pagescript')
+<!-- page script -->
+<script type="text/javascript">
+  const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+  });
+  @if ($errors->any())
+    Toast.fire({
+        type: 'error',
+        title: 'Data gagal dimasukkan.'
+    }) 
+  @endif
+  function submitform() 
+  {
+    Swal.fire({
+      title: 'Processing',
+      html: 'Please Wait',
+      timer: 1000,
+      timerProgressBar: true,
+      allowOutsideClick: false,
+      onBeforeOpen: () => {
+        Swal.showLoading()
+        timerInterval = setInterval(() => {
+          const content = Swal.getContent()
+        }, 100)
+      },
+      onClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      if (result.dismiss === Swal.DismissReason.timer) {
+        document.getElementById("tambah").submit();
+      }
+    })
+  }
+</script>
 @endsection

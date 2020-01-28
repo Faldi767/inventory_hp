@@ -11,7 +11,7 @@
             <!-- /.card-header -->
             <div class="card-body">
                 <a href="/role" class="btn btn-primary">Data Role</a>
-                <a href="/role/restoreall" class="btn btn-success">Restore All</a>
+                <button type="button" onclick="restoreall()" class="btn btn-success">Restore All</button>
                 <button type="button" onclick="hapusall()" class="btn btn-danger">Hapus Semua</button>
                 <br>
                 <br>
@@ -27,7 +27,7 @@
                   <tr>
                       <td>{{ $r->nama_role }}</td>
                       <td>
-                          <a href="/role/restore/{{ $r->id }}" class="btn btn-success">Restore</a>
+                          <button type="button" onclick="restoreConfirm({{ $r->id }})" class="btn btn-success">Restore</button>
                           <button type="button" onclick="deleteConfirm({{ $r->id }})" class="btn btn-danger">Hapus Permanen</button>
                       </td>
                   </tr>
@@ -137,6 +137,52 @@
         })
       }
     })
+  }
+  function restoreConfirm(id) 
+  {
+        Swal.fire({
+          title: 'Processing',
+          html: 'Please Wait',
+          timer: 1000,
+          timerProgressBar: true,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+              const content = Swal.getContent()
+            }, 100)
+          },
+          onClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "restore/" + id;
+          }
+        })
+  }
+  function restoreall() 
+  {
+        Swal.fire({
+          title: 'Processing',
+          html: 'Please Wait',
+          timer: 1000,
+          timerProgressBar: true,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+              const content = Swal.getContent()
+            }, 100)
+          },
+          onClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "restoreall/";
+          }
+        })
   }
 </script>
 <script>

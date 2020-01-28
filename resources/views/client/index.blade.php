@@ -6,7 +6,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Role</h3>
+              <h3 class="card-title">Data Client</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -17,17 +17,19 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nama Role</th>
+                  <th>Nama Client</th>
+                  <th>Role</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($role as $r)
+                @foreach($client as $c)
                   <tr>
-                      <td>{{ $r->nama_role }}</td>
+                      <td>{{ $c->user_nama }}</td>
+                      <td>{{ $c->role->nama_role }}</td>
                       <td>
-                          <a href="/role/edit/{{ $r->id }}" class="btn btn-warning">Edit</a>
-                          <button onclick="deleteConfirm({{ $r->id }})" class="btn btn-danger">Hapus</button>
+                          <a href="/role/edit/{{ $c->id }}" class="btn btn-warning">Edit</a>
+                          <button onclick="deleteConfirm({{ $c->id }})" class="btn btn-danger">Hapus</button>
                       </td>
                   </tr>
                 @endforeach
@@ -70,11 +72,12 @@
     Swal.fire({
       title: 'Are you sure?',
       text: "You still able to restore data from trash.",
-      type: 'warning',
+      icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes'
+      confirmButtonText: 'Yes',
+      showLoaderOnConfirm: true
     }).then((result) => {
       if (result.value) {
         Swal.fire({

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesTable extends Migration
+class CreateClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('role', function (Blueprint $table) {
+        Schema::create('client', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_role')->unique();
+            $table->unsignedInteger('role_id');
+            $table->string('user_nama');
+            $table->string('username')->unique();
+            $table->string('password');
+            $table->string('avatar')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('role_id')->references('id')->on('role');
         });
     }
 
@@ -28,6 +33,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role');
+        Schema::dropIfExists('client');
     }
 }

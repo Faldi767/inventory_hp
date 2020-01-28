@@ -104,9 +104,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="/client" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data User</p>
+                  <p>Data Client</p>
                 </a>
               </li>
               <li class="nav-item">
