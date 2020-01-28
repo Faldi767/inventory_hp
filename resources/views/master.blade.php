@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="{{ asset('/css/all.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="{{ asset('/css/bootstrap-4.min.css') }}">
   <!-- pace-progress -->
   <link rel="stylesheet" href="{{ asset('/css/pace-theme-flash.css') }}">
   <!-- DataTables -->
@@ -67,7 +69,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ url('/') }}" class="brand-link">
       <span class="brand-text font-weight-light">Gudang HP</span>
     </a>
 
@@ -96,7 +98,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="/role" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Role</p>
                 </a>
@@ -111,12 +113,6 @@
                 <a href="./index.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Brand</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Warna</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -192,10 +188,10 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; {{ date('Y') }} <a href="http://adminlte.io">Muhammad Rifaldi Akbar</a>.</strong>
+    <strong>Copyright &copy; {{ date('Y') }} <a href="https://github.com/Faldi767">Muhammad Rifaldi Akbar</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.0.4
+      <b>Version</b> 0.0.5
     </div>
   </footer>
 
@@ -217,6 +213,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+<!-- SweetAlert2 -->
+<script src="{{ asset('/js/sweetalert2.min.js') }}"></script>
 <!-- ChartJS -->
 <script src="{{ asset('/js/Chart.min.js') }}"></script>
 <!-- Sparkline -->

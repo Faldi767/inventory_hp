@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Role;
+use Session;
 
 class RoleController extends Controller
 {
@@ -26,7 +27,7 @@ class RoleController extends Controller
         Role::create([
     		'nama_role' => $request->nama_role
     	]);
- 
+        Session::flash('success','Data berhasil ditambah.');
     	return redirect('/role');
     }
 
@@ -45,6 +46,7 @@ class RoleController extends Controller
         $role = Role::find($id);
         $role->nama_role = $request->nama_role;
         $role->save();
+        Session::flash('success','Data berhasil diupdate.');
         return redirect('/role');
     }
 
@@ -52,6 +54,7 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $role->delete();
+        Session::flash('success','Data berhasil dihapus.');
         return redirect('/role');
     }
 
@@ -65,6 +68,7 @@ class RoleController extends Controller
     {
         $role = Role::onlyTrashed()->where('id',$id);
         $role->restore();
+        Session::flash('success','Data berhasil dikembalikan.');
         return redirect('/role/trash');
     }
 
@@ -72,6 +76,7 @@ class RoleController extends Controller
     {
         $role = Role::onlyTrashed();
         $role->restore();
+        Session::flash('success','Data berhasil dikembalikan semua.');
         return redirect('role/trash');
     }
 
@@ -79,6 +84,7 @@ class RoleController extends Controller
     {
         $role = Role::onlyTrashed()->where('id',$id);
         $role->forceDelete();
+        Session::flash('success','Data berhasil dihapus.');
         return redirect('/role/trash');
     }
 
@@ -86,6 +92,7 @@ class RoleController extends Controller
     {
         $role = Role::onlyTrashed();
         $role->forceDelete();
+        Session::flash('success','Data berhasil dihapus semua.');
         return redirect('role/trash');
     }
 }

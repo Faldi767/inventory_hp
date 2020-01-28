@@ -10,7 +10,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{ $role->count() }}</h3>
 
                 <p>User Terdaftar</p>
               </div>

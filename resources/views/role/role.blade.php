@@ -27,7 +27,7 @@
                       <td>{{ $r->nama_role }}</td>
                       <td>
                           <a href="/role/edit/{{ $r->id }}" class="btn btn-warning">Edit</a>
-                          <a href="/role/hapus/{{ $r->id }}" class="btn btn-danger">Hapus</a>
+                          <button href="/role/hapus/{{ $r->id }}" onclick="deleteConfirm({{ $r->id }})" class="btn btn-danger">Hapus</button>
                       </td>
                   </tr>
                 @endforeach
@@ -52,6 +52,56 @@
 
 @section('pagescript')
 <!-- page script -->
+<script type="text/javascript">
+  const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+  });
+  @if ($message = Session::get('success'))
+  Toast.fire({
+      type: 'success',
+      title: '{{ $message }}'
+  })
+  @endif
+  function deleteConfirm(id) 
+  {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You still able to restore data from trash.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes',
+      showLoaderOnConfirm: true
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire({
+          title: 'Processing',
+          html: 'Please Wait',
+          timer: 1000,
+          timerProgressBar: true,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+              const content = Swal.getContent()
+            }, 100)
+          },
+          onClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "role/hapus/" + id;
+          }
+        })
+      }
+    })
+  }
+</script>
 <script>
   $(function () {
     $("#example1").DataTable({

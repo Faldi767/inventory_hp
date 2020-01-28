@@ -12,7 +12,7 @@
             <div class="card-body">
                 <a href="/role" class="btn btn-primary">Data Role</a>
                 <a href="/role/restoreall" class="btn btn-success">Restore All</a>
-                <a href="/role/hapusall" class="btn btn-danger">Hapus Semua</a>
+                <button type="button" onclick="hapusall()" class="btn btn-danger">Hapus Semua</button>
                 <br>
                 <br>
               <table id="example1" class="table table-bordered table-striped">
@@ -28,7 +28,7 @@
                       <td>{{ $r->nama_role }}</td>
                       <td>
                           <a href="/role/restore/{{ $r->id }}" class="btn btn-success">Restore</a>
-                          <a href="/role/hapuspermanen/{{ $r->id }}" class="btn btn-danger">Hapus Permanen</a>
+                          <button type="button" onclick="deleteConfirm({{ $r->id }})" class="btn btn-danger">Hapus Permanen</button>
                       </td>
                   </tr>
                 @endforeach
@@ -53,6 +53,92 @@
 
 @section('pagescript')
 <!-- page script -->
+<script type="text/javascript">
+  const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+  });
+  @if ($message = Session::get('success'))
+  Toast.fire({
+      type: 'success',
+      title: '{{ $message }}'
+  })
+  @endif
+  function deleteConfirm(id) 
+  {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You will not able to restore data once permanently deleted.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes',
+      showLoaderOnConfirm: true
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire({
+          title: 'Processing',
+          html: 'Please Wait',
+          timer: 1000,
+          timerProgressBar: true,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+              const content = Swal.getContent()
+            }, 100)
+          },
+          onClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "hapuspermanen/" + id;
+          }
+        })
+      }
+    })
+  }
+  function hapusall() 
+  {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You will not able to restore data once permanently deleted.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes',
+      showLoaderOnConfirm: true
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire({
+          title: 'Processing',
+          html: 'Please Wait',
+          timer: 1000,
+          timerProgressBar: true,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+              const content = Swal.getContent()
+            }, 100)
+          },
+          onClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "hapusall/";
+          }
+        })
+      }
+    })
+  }
+</script>
 <script>
   $(function () {
     $("#example1").DataTable({
