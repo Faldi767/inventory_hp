@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 Use App\Client;
 Use App\Role;
@@ -34,7 +35,7 @@ class ClientController extends Controller
         Client::create([
     		'user_nama' => $request->user_nama,
             'username' => $request->username,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'role_id' => $request->role_id
     	]);
         Session::flash('success','Data berhasil ditambah.');
@@ -53,14 +54,16 @@ class ClientController extends Controller
         $this->validate($request,[
             'user_nama' => 'required',
             'username' => 'required',
-            'password' => 'required',
+            'password' => '',
             'role_id' => 'required'
         ]);
     
         $client = Client::find($id);
         $client->user_nama = $request->user_nama;
         $client->username = $request->username;
-        $client->password = $request->password;
+        if(isset($request->password)) {
+        $client->password = Hash::make($request->password);
+        }
         $client->role_id = $request->role_id;
         $client->save();
         Session::flash('success','Data berhasil diupdate.');

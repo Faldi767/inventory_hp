@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'AdminController@index');
+Route::get('/', 'AdminController@index')->middleware('ceksession');
 Route::get('/login', 'AuthController@login');
 
 Route::get('/role', 'RoleController@index');
