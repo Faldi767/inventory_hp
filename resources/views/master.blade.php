@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="{{ asset('/css/all.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- pace-progress -->
+  <link rel="stylesheet" href="{{ asset('/css/pace-theme-flash.css') }}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('/css/dataTables.bootstrap4.css') }}">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="{{ asset('/css/tempusdominus-bootstrap-4.min.css') }}">
   <!-- iCheck -->
@@ -191,7 +195,7 @@
     <strong>Copyright &copy; {{ date('Y') }} <a href="http://adminlte.io">Muhammad Rifaldi Akbar</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.0.3
+      <b>Version</b> 0.0.4
     </div>
   </footer>
 
@@ -222,6 +226,9 @@
 <script src="{{ asset('/js/jquery.vmap.usa.js') }}"></script>
 <!-- jQuery Knob Chart -->
 <script src="{{ asset('/js/jquery.knob.min.js') }}"></script>
+
+<script src="{{ asset('/js/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('/js/dataTables.bootstrap4.js') }}"></script>
 <!-- daterangepicker -->
 <script src="{{ asset('/js/moment.min.js') }}"></script>
 <script src="{{ asset('/js/daterangepicker.js') }}"></script>
@@ -231,11 +238,14 @@
 <script src="{{ asset('/js/summernote-bs4.min.js') }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{ asset('/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- pace-progress -->
+<script src="{{ asset('/js/pace.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/js/adminlte.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('/js/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/js/demo.js') }}"></script>
+@yield('pagescript')
 </body>
 </html>
