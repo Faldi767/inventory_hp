@@ -11,8 +11,10 @@
   <link rel="stylesheet" href="{{ asset('/css/all.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="{{ asset('/css/bootstrap-4.min.css') }}">
   <!-- pace-progress -->
-  <link rel="stylesheet" href="{{ asset('/css/pace-theme-flash.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/pace-theme-minimal.css') }}">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="{{ asset('/css/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
@@ -28,8 +30,10 @@
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
 <!-- pace-progress -->
 <script src="{{ asset('/js/pace.min.js') }}"></script>
+<!-- SweetAlert2 -->
+<script src="{{ asset('/js/sweetalert2.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/js/adminlte.min.js') }}"></script>
-
+@yield('pagescript')
 </body>
 </html>

@@ -49,16 +49,11 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-        <img style="max-width:30px;" src="" class="img-circle elevation-2 mr-2" alt="">
-          <span>Faldi</span>
+          <span>{{ Session::get('user_nama') }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu dropdown-menu-right">
-          <a href="#" class="dropdown-item">
+          <a href="login/logout" class="dropdown-item">
             <i class="fas fa-envelope mr-2"></i> Logout
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> Edit Profile
           </a>
         </div>
       </li>
@@ -110,19 +105,25 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="/supplier" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Supplier</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/brand" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Brand</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="/smartphone" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Smartphone</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="/toko" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Toko</p>
                 </a>
@@ -164,7 +165,7 @@
           </li>
           <li class="nav-header">USER</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="/login/logout" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Logout

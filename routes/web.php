@@ -12,28 +12,31 @@
 */
 
 Route::get('/', 'AdminController@index')->middleware('ceksession');
+
 Route::get('/login', 'AuthController@login');
+Route::post('/login/store', 'AuthController@store');
+Route::get('/login/logout', 'AuthController@logout');
 
-Route::get('/role', 'RoleController@index');
-Route::get('/role/tambah', 'RoleController@tambah');
-Route::post('/role/store', 'RoleController@store');
-Route::get('/role/edit/{id}', 'RoleController@edit');
-Route::put('/role/update/{id}', 'RoleController@update');
-Route::get('/role/hapus/{id}', 'RoleController@delete');
-Route::get('/role/trash', 'RoleController@trash');
-Route::get('/role/restore/{id}', 'RoleController@restore');
-Route::get('/role/restoreall', 'RoleController@restoreall');
-Route::get('/role/hapuspermanen/{id}', 'RoleController@hapuspermanen');
-Route::get('/role/hapusall', 'RoleController@hapusall');
+Route::get('/role', 'RoleController@index')->middleware('ceksession');
+Route::get('/role/tambah', 'RoleController@tambah')->middleware('ceksession');
+Route::post('/role/store', 'RoleController@store')->middleware('ceksession');
+Route::get('/role/edit/{id}', 'RoleController@edit')->middleware('ceksession');
+Route::put('/role/update/{id}', 'RoleController@update')->middleware('ceksession');
+Route::get('/role/hapus/{id}', 'RoleController@delete')->middleware('ceksession');
+Route::get('/role/trash', 'RoleController@trash')->middleware('ceksession');
+Route::get('/role/restore/{id}', 'RoleController@restore')->middleware('ceksession');
+Route::get('/role/restoreall', 'RoleController@restoreall')->middleware('ceksession');
+Route::get('/role/hapuspermanen/{id}', 'RoleController@hapuspermanen')->middleware('ceksession');
+Route::get('/role/hapusall', 'RoleController@hapusall')->middleware('ceksession');
 
-Route::get('/client', 'ClientController@index');
-Route::get('/client/tambah', 'ClientController@tambah');
-Route::post('/client/store', 'ClientController@store');
-Route::get('/client/edit/{id}', 'ClientController@edit');
-Route::put('/client/update/{id}', 'ClientController@update');
-Route::get('/client/hapus/{id}', 'ClientController@delete');
-Route::get('/client/trash', 'ClientController@trash');
-Route::get('/client/restore/{id}', 'ClientController@restore');
-Route::get('/client/restoreall', 'ClientController@restoreall');
-Route::get('/client/hapuspermanen/{id}', 'ClientController@hapuspermanen');
-Route::get('/client/hapusall', 'ClientController@hapusall');
+Route::get('/client', 'ClientController@index')->middleware('ceksession');
+Route::get('/client/tambah', 'ClientController@tambah')->middleware('ceksession');
+Route::post('/client/store', 'ClientController@store')->middleware('ceksession');
+Route::get('/client/edit/{id}', 'ClientController@edit')->middleware('ceksession');
+Route::put('/client/update/{id}', 'ClientController@update')->middleware('ceksession');
+Route::get('/client/hapus/{id}', 'ClientController@delete')->middleware('ceksession');
+Route::get('/client/trash', 'ClientController@trash')->middleware('ceksession');
+Route::get('/client/restore/{id}', 'ClientController@restore')->middleware('ceksession');
+Route::get('/client/restoreall', 'ClientController@restoreall')->middleware('ceksession');
+Route::get('/client/hapuspermanen/{id}', 'ClientController@hapuspermanen')->middleware('ceksession');
+Route::get('/client/hapusall', 'ClientController@hapusall')->middleware('ceksession');

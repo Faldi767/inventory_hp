@@ -16,11 +16,43 @@ class CekSession
      */
     public function handle($request, Closure $next)
     {
-        if ($request->session()->has('nama')) {
-            
-        } else {
-            return redirect('role');
+        if (\Request::is('role/*') || \Request::is('role')) { 
+            if ($request->session()->has('username')) {
+                if($request->session()->get('nama_role') != "Admin") {
+                    Session::flash('error','Anda tidak login sebagai admin.');
+                    return redirect('/');   
+                }
+            } else {
+                Session::flash('error','Silahkan login terlebih dahulu.');
+                return redirect('login');
+            }
         }
+
+        if (\Request::is('client/*') || \Request::is('client')) { 
+            if ($request->session()->has('username')) {
+                if($request->session()->get('nama_role') != "Admin") {
+                    Session::flash('error','Anda tidak login sebagai admin.');
+                    return redirect('/');   
+                }
+            } else {
+                Session::flash('error','Silahkan login terlebih dahulu.');
+                return redirect('login');
+            }
+        }
+
+        if (\Request::is('/')) { 
+            if ($request->session()->has('username')) {
+            } else {
+                Session::flash('error','Silahkan login terlebih dahulu.');
+                return redirect('login');
+            }
+        }
+
+        /* if ($request->session()->has('username')) {
+        } else {
+            Session::flash('error','Username atau password salah.');
+            return redirect('login');
+        } */
         return $next($request);
     }
 }

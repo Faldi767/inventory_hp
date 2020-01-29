@@ -26,7 +26,7 @@
                         <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" value="{{ $client->username }}">
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password">Password (Kosongi apabila tidak update password)</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="">
                     </div>
                     <div class="form-group">

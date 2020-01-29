@@ -72,3 +72,26 @@
     </section>
     <!-- /.content -->
 @endsection
+@section('pagescript')
+<!-- page script -->
+<script type="text/javascript">
+  const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+  });
+  @if ($message = Session::get('error'))
+  Toast.fire({
+      type: 'error',
+      title: '{{ $message }}'
+  })
+  @endif
+  @if ($message = Session::get('success'))
+  Toast.fire({
+      type: 'success',
+      title: '{{ $message }}'
+  })
+  @endif
+</script>
+@endsection
