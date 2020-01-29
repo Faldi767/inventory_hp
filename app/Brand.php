@@ -11,4 +11,9 @@ class Brand extends Model
     protected $table = 'brand';
 
     protected $fillable = ['nama_brand'];
+
+    public function smartphone()
+    {
+        return $this->hasMany('App\Smartphone');
+    }
 }

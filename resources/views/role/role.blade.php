@@ -18,13 +18,21 @@
                 <thead>
                 <tr>
                   <th>Nama Role</th>
+                  <th>Daftar Client</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($role as $r)
                   <tr>
-                      <td>{{ $r->nama_role }}</td>
+                      <td style="text-align: center;vertical-align: middle;">{{ $r->nama_role }}</td>
+                      <td style="vertical-align: middle;">
+                        @forelse($r->client as $c)
+                            <li>{{ $c->user_nama }}</li>
+                          @empty
+                             <a href="{{ url('/client/tambah') }}">Tambahkan User</a>
+                        @endforelse
+                      </td>
                       <td>
                           <a href="/role/edit/{{ $r->id }}" class="btn btn-warning">Edit</a>
                           <button onclick="deleteConfirm({{ $r->id }})" class="btn btn-danger">Hapus</button>
@@ -35,6 +43,7 @@
                 <tfoot>
                 <tr>
                   <th>Nama Role</th>
+                  <th>Daftar Client</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>

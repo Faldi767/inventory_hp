@@ -19,6 +19,12 @@ class CreateBrandsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        DB::table('brand')->insert(
+            array(
+                'nama_brand' => 'Xiaomi'
+            )
+        );
     }
 
     /**

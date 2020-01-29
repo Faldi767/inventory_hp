@@ -19,6 +19,12 @@ class CreateSuppliersTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        DB::table('supplier')->insert(
+            array(
+                'nama_supplier' => 'PT. Xiaomi Indonesia'
+            )
+        );
     }
 
     /**

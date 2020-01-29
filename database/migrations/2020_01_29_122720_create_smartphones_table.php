@@ -21,6 +21,13 @@ class CreateSmartphonesTable extends Migration
             $table->softDeletes();
             $table->foreign('brand_id')->references('id')->on('brand');
         });
+
+        DB::table('smartphone')->insert(
+            array(
+                'brand_id' => 1,
+                'nama_smartphone' => 'Note 8'
+            )
+        );
     }
 
     /**

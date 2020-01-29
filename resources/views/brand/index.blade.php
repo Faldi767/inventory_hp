@@ -18,13 +18,21 @@
                 <thead>
                 <tr>
                   <th>Nama Brand</th>
+                  <th>Daftar Smartphone</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($brand as $b)
                   <tr>
-                      <td>{{ $b->nama_brand }}</td>
+                      <td style="text-align: center;vertical-align: middle;">{{ $b->nama_brand }}</td>
+                      <td style="vertical-align: middle;">
+                        @forelse($b->smartphone as $s)
+                            <li>{{ $s->nama_smartphone }}</li>
+                          @empty
+                             <a href="{{ url('/smartphone/tambah') }}">Tambahkan Smartphone</a>
+                        @endforelse
+                      </td>
                       <td>
                           <a href="/brand/edit/{{ $b->id }}" class="btn btn-warning">Edit</a>
                           <button onclick="deleteConfirm({{ $b->id }})" class="btn btn-danger">Hapus</button>
@@ -35,6 +43,7 @@
                 <tfoot>
                 <tr>
                   <th>Nama Brand</th>
+                  <th>Daftar Smartphone</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>
