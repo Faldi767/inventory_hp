@@ -40,3 +40,15 @@ Route::get('/client/restore/{id}', 'ClientController@restore')->middleware('ceks
 Route::get('/client/restoreall', 'ClientController@restoreall')->middleware('ceksession');
 Route::get('/client/hapuspermanen/{id}', 'ClientController@hapuspermanen')->middleware('ceksession');
 Route::get('/client/hapusall', 'ClientController@hapusall')->middleware('ceksession');
+
+Route::get('/brand', 'BrandController@index')->middleware('ceksession');
+Route::get('/brand/tambah', 'BrandController@tambah')->middleware('ceksession');
+Route::post('/brand/store', 'BrandController@store')->middleware('ceksession');
+Route::get('/brand/edit/{id}', 'BrandController@edit')->middleware('ceksession');
+Route::put('/brand/update/{id}', 'BrandController@update')->middleware('ceksession');
+Route::get('/brand/hapus/{id}', 'BrandController@delete')->middleware('ceksession');
+Route::get('/brand/trash', 'BrandController@trash')->middleware('ceksession');
+Route::get('/brand/restore/{id}', 'BrandController@restore')->middleware('ceksession');
+Route::get('/brand/restoreall', 'BrandController@restoreall')->middleware('ceksession');
+Route::get('/brand/hapuspermanen/{id}', 'BrandController@hapuspermanen')->middleware('ceksession');
+Route::get('/brand/hapusall', 'BrandController@hapusall')->middleware('ceksession');

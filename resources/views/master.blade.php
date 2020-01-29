@@ -192,7 +192,7 @@
     <strong>Copyright &copy; {{ date('Y') }} <a href="https://github.com/Faldi767">Muhammad Rifaldi Akbar</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.0.7
+      <b>Version</b> 0.0.9
     </div>
   </footer>
 
