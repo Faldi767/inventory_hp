@@ -40,9 +40,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{ $client->count() }}</h3>
 
-                <p>Toko Terdaftar   </p>
+                <p>Toko Terdaftar</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -55,7 +55,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>{{ $brand->count() }}</h3>
 
                 <p>Brand Terdaftar</p>
               </div>

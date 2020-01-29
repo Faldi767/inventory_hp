@@ -64,3 +64,15 @@ Route::get('/supplier/restore/{id}', 'SupplierController@restore')->middleware('
 Route::get('/supplier/restoreall', 'SupplierController@restoreall')->middleware('ceksession');
 Route::get('/supplier/hapuspermanen/{id}', 'SupplierController@hapuspermanen')->middleware('ceksession');
 Route::get('/supplier/hapusall', 'SupplierController@hapusall')->middleware('ceksession');
+
+Route::get('/toko', 'TokoController@index')->middleware('ceksession');
+Route::get('/toko/tambah', 'TokoController@tambah')->middleware('ceksession');
+Route::post('/toko/store', 'TokoController@store')->middleware('ceksession');
+Route::get('/toko/edit/{id}', 'TokoController@edit')->middleware('ceksession');
+Route::put('/toko/update/{id}', 'TokoController@update')->middleware('ceksession');
+Route::get('/toko/hapus/{id}', 'TokoController@delete')->middleware('ceksession');
+Route::get('/toko/trash', 'TokoController@trash')->middleware('ceksession');
+Route::get('/toko/restore/{id}', 'TokoController@restore')->middleware('ceksession');
+Route::get('/toko/restoreall', 'TokoController@restoreall')->middleware('ceksession');
+Route::get('/toko/hapuspermanen/{id}', 'TokoController@hapuspermanen')->middleware('ceksession');
+Route::get('/toko/hapusall', 'TokoController@hapusall')->middleware('ceksession');

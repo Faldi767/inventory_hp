@@ -6,35 +6,35 @@
         <div class="col-12">
           <div class="card card-primary card-outline">
             <div class="card-header">
-              <h3 class="card-title">Data Supplier</h3>
+              <h3 class="card-title">Data Toko</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <a href="/supplier/tambah" class="btn btn-primary">Tambah Data</a>
-                <a href="/supplier/trash" class="btn btn-primary">Tong Sampah</a>
+                <a href="/toko/tambah" class="btn btn-primary">Tambah Data</a>
+                <a href="/toko/trash" class="btn btn-primary">Tong Sampah</a>
                 <br>
                 <br>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nama Supplier</th>
+                  <th>Nama Toko</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($supplier as $s)
+                @foreach($toko as $t)
                   <tr>
-                      <td>{{ $s->nama_supplier }}</td>
+                      <td>{{ $t->nama_toko }}</td>
                       <td>
-                          <a href="/supplier/edit/{{ $s->id }}" class="btn btn-warning">Edit</a>
-                          <button onclick="deleteConfirm({{ $s->id }})" class="btn btn-danger">Hapus</button>
+                          <a href="/toko/edit/{{ $t->id }}" class="btn btn-warning">Edit</a>
+                          <button onclick="deleteConfirm({{ $t->id }})" class="btn btn-danger">Hapus</button>
                       </td>
                   </tr>
                 @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Nama Supplier</th>
+                  <th>Nama Toko</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>
@@ -94,7 +94,7 @@
           }
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
-            window.location.href = "supplier/hapus/" + id;
+            window.location.href = "toko/hapus/" + id;
           }
         })
       }
