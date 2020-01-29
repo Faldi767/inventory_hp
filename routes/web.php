@@ -76,3 +76,15 @@ Route::get('/toko/restore/{id}', 'TokoController@restore')->middleware('ceksessi
 Route::get('/toko/restoreall', 'TokoController@restoreall')->middleware('ceksession');
 Route::get('/toko/hapuspermanen/{id}', 'TokoController@hapuspermanen')->middleware('ceksession');
 Route::get('/toko/hapusall', 'TokoController@hapusall')->middleware('ceksession');
+
+Route::get('/smartphone', 'SmartphoneController@index')->middleware('ceksession');
+Route::get('/smartphone/tambah', 'SmartphoneController@tambah')->middleware('ceksession');
+Route::post('/smartphone/store', 'SmartphoneController@store')->middleware('ceksession');
+Route::get('/smartphone/edit/{id}', 'SmartphoneController@edit')->middleware('ceksession');
+Route::put('/smartphone/update/{id}', 'SmartphoneController@update')->middleware('ceksession');
+Route::get('/smartphone/hapus/{id}', 'SmartphoneController@delete')->middleware('ceksession');
+Route::get('/smartphone/trash', 'SmartphoneController@trash')->middleware('ceksession');
+Route::get('/smartphone/restore/{id}', 'SmartphoneController@restore')->middleware('ceksession');
+Route::get('/smartphone/restoreall', 'SmartphoneController@restoreall')->middleware('ceksession');
+Route::get('/smartphone/hapuspermanen/{id}', 'SmartphoneController@hapuspermanen')->middleware('ceksession');
+Route::get('/smartphone/hapusall', 'SmartphoneController@hapusall')->middleware('ceksession');

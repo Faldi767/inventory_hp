@@ -60,6 +60,14 @@ class CekSession
             }
         }
 
+        if (\Request::is('smartphone/*') || \Request::is('smartphone')) { 
+            if ($request->session()->has('username')) {
+            } else {
+                Session::flash('error','Silahkan login terlebih dahulu.');
+                return redirect('login');
+            }
+        }
+
         if (\Request::is('supplier/*') || \Request::is('supplier')) { 
             if ($request->session()->has('username')) {
             } else {
@@ -75,12 +83,6 @@ class CekSession
                 return redirect('login');
             }
         }
-
-        /* if ($request->session()->has('username')) {
-        } else {
-            Session::flash('error','Username atau password salah.');
-            return redirect('login');
-        } */
         return $next($request);
     }
 }
