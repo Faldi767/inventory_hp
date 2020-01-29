@@ -52,3 +52,15 @@ Route::get('/brand/restore/{id}', 'BrandController@restore')->middleware('cekses
 Route::get('/brand/restoreall', 'BrandController@restoreall')->middleware('ceksession');
 Route::get('/brand/hapuspermanen/{id}', 'BrandController@hapuspermanen')->middleware('ceksession');
 Route::get('/brand/hapusall', 'BrandController@hapusall')->middleware('ceksession');
+
+Route::get('/supplier', 'SupplierController@index')->middleware('ceksession');
+Route::get('/supplier/tambah', 'SupplierController@tambah')->middleware('ceksession');
+Route::post('/supplier/store', 'SupplierController@store')->middleware('ceksession');
+Route::get('/supplier/edit/{id}', 'SupplierController@edit')->middleware('ceksession');
+Route::put('/supplier/update/{id}', 'SupplierController@update')->middleware('ceksession');
+Route::get('/supplier/hapus/{id}', 'SupplierController@delete')->middleware('ceksession');
+Route::get('/supplier/trash', 'SupplierController@trash')->middleware('ceksession');
+Route::get('/supplier/restore/{id}', 'SupplierController@restore')->middleware('ceksession');
+Route::get('/supplier/restoreall', 'SupplierController@restoreall')->middleware('ceksession');
+Route::get('/supplier/hapuspermanen/{id}', 'SupplierController@hapuspermanen')->middleware('ceksession');
+Route::get('/supplier/hapusall', 'SupplierController@hapusall')->middleware('ceksession');

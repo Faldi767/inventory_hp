@@ -48,6 +48,14 @@ class CekSession
             }
         }
 
+        if (\Request::is('supplier/*') || \Request::is('supplier')) { 
+            if ($request->session()->has('username')) {
+            } else {
+                Session::flash('error','Silahkan login terlebih dahulu.');
+                return redirect('login');
+            }
+        }
+
         if (\Request::is('/')) { 
             if ($request->session()->has('username')) {
             } else {
