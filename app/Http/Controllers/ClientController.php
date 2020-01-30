@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 
 Use App\Client;
 Use App\Role;
+Use App\Toko;
 Use Session;
 
 class ClientController extends Controller
@@ -20,7 +21,8 @@ class ClientController extends Controller
     public function tambah()
     {
         $role = Role::where('nama_role', '!=', "Developer")->get();
-        return view('client/tambah', ['role' => $role]);
+        $toko = Toko::all();
+        return view('client/tambah', ['role' => $role, 'toko' => $toko]);
     }
 
     public function store(Request $request)
@@ -29,14 +31,16 @@ class ClientController extends Controller
             'user_nama' => 'required',
             'username' => 'required',
             'password' => 'required',
-            'role_id' => 'required'
+            'role_id' => 'required',
+            'toko_id' => 'required'
     	]);
  
         Client::create([
     		'user_nama' => $request->user_nama,
             'username' => $request->username,
             'password' => Hash::make($request->password),
-            'role_id' => $request->role_id
+            'role_id' => $request->role_id,
+            'toko_id' => $request->toko_id
     	]);
         Session::flash('success','Data berhasil ditambah.');
     	return redirect('/client');
@@ -45,8 +49,9 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::find($id);
+        $toko = Toko::all();
         $role = Role::where('nama_role', '!=', "Developer")->get();
-        return view('client/edit', ['client' => $client, 'role' => $role]);
+        return view('client/edit', ['client' => $client, 'role' => $role, 'toko' => $toko]);
     }
 
     public function update($id, Request $request)

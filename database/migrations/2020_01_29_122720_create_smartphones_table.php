@@ -14,7 +14,7 @@ class CreateSmartphonesTable extends Migration
     public function up()
     {
         Schema::create('smartphone', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->unsignedInteger('brand_id');
             $table->string('nama_smartphone');
             $table->integer('jumlah')->nullable()->default(0);

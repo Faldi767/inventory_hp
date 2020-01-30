@@ -9,40 +9,36 @@
             <!-- general form elements -->
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h3 class="card-title">Tambah Client</h3>
+                <h3 class="card-title">Tambah Barang Masuk</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="/client/store" id="tambah">
+              <form method="post" action="/barangmasuk/store" id="tambah" enctype="multipart/form-data">
               {{ csrf_field() }}
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="user_nama">Nama Client</label>
-                        <input type="text" class="form-control" id="user_nama" name="user_nama" placeholder="Enter client name">
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-                    </div>
-                    <div class="form-group">
-                        <label>Role</label>
-                        <select class="form-control" name="role_id">
-                            @foreach($role as $r)
-                                <option value="{{ $r->id }}">{{ $r->nama_role }}</option>
+                        <label>Supplier</label>
+                        <select class="form-control" name="supplier_id">
+                            @foreach($supplier as $s)
+                                <option value="{{ $s->id }}">{{ $s->nama_supplier }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Toko</label>
-                        <select class="form-control" name="toko_id">
-                            @foreach($toko as $t)
-                                <option value="{{ $t->id }}">{{ $t->nama_toko }}</option>
+                        <label>Smartphone</label>
+                        <select class="form-control" name="smartphone_id">
+                            @foreach($smartphone as $sm)
+                                <option value="{{ $sm->id }}">{{ $sm->nama_smartphone }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jumlah">Jumlah</label>
+                        <input type="text" class="form-control" id="jumlah" name="jumlah" placeholder="Enter client name">
+                    </div>
+                    <div class="form-group">
+                        <label for="bukti">Bukti (Gambar)</label>
+                        <input type="file" class="form-control" id="bukti" name="bukti">
                     </div>
                 </div>
                 <!-- /.card-body -->

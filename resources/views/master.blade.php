@@ -139,6 +139,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/barangmasuk" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Barang Masuk
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+          </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -192,7 +201,7 @@
     <strong>Copyright &copy; {{ date('Y') }} <a href="https://github.com/Faldi767">Muhammad Rifaldi Akbar</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.1.0
+      <b>Version</b> 0.1.1
     </div>
   </footer>
 

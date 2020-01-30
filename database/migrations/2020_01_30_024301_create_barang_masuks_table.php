@@ -18,7 +18,10 @@ class CreateBarangMasuksTable extends Migration
             $table->unsignedInteger('supplier_id');
             $table->unsignedInteger('smartphone_id');
             $table->integer('jumlah');
+            $table->string('bukti');
             $table->timestamps();
+            $table->foreign('supplier_id')->references('id')->on('supplier');
+            $table->foreign('smartphone_id')->references('id')->on('smartphone');
         });
     }
 
