@@ -64,6 +64,26 @@ class CekSession
             }
         }
 
+        if (\Request::is('transaksi/edit') || \Request::is('transaksi/update')) { 
+            if ($request->session()->has('username')) {
+                if($request->session()->get('nama_toko') != "Erafone Pusat") {
+                    Session::flash('error','Anda bukan petugas gudang pusat.');
+                    return redirect('/');   
+                }
+            } else {
+                Session::flash('error','Silahkan login terlebih dahulu.');
+                return redirect('login');
+            }
+        }
+
+        if (\Request::is('transaksi')) { 
+            if ($request->session()->has('username')) {
+            } else {
+                Session::flash('error','Silahkan login terlebih dahulu.');
+                return redirect('login');
+            }
+        }
+
         if (\Request::is('brand/*') || \Request::is('brand')) { 
             if ($request->session()->has('username')) {
             } else {

@@ -52,8 +52,8 @@
           <span>{{ Session::get('user_nama') }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu dropdown-menu-right">
-          <a href="login/logout" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> Logout
+          <a href="{{url('login/logout')}}" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i> Logout
           </a>
         </div>
       </li>
@@ -77,7 +77,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="pages/gallery.html" class="nav-link active">
-              <i class="nav-icon far fa-image"></i>
+              <i class="nav-icon fas fa-home"></i>
               <p>
                 Beranda
               </p>
@@ -85,13 +85,14 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-file-alt"></i>
               <p>
                 Data Master
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
+              @if(Session::get('nama_role') == "Admin")
               <li class="nav-item">
                 <a href="/role" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -104,6 +105,7 @@
                   <p>Data Client</p>
                 </a>
               </li>
+              @endif
               <li class="nav-item">
                 <a href="/supplier" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -131,51 +133,35 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+            <a href="/transaksi/tambah" class="nav-link">
+              <i class="nav-icon fas fa-inbox"></i>
               <p>
-                Permintaan Pesanan
-                <span class="badge badge-info right">6</span>
+                Request Pesanan
               </p>
             </a>
           </li>
+          @if(Session::get('nama_toko') == "Erafone Pusat")
           <li class="nav-item">
             <a href="/barangmasuk" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-boxes"></i>
               <p>
                 Barang Masuk
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+          @endif
+          <li class="nav-item">
+            <a href="/transaksi" class="nav-link">
+              <i class="nav-icon fas fa-clipboard"></i>
               <p>
                 Data Transaksi
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Barang Diproses</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Barang Selesai</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-header">USER</li>
           <li class="nav-item">
             <a href="/login/logout" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
                 Logout
               </p>

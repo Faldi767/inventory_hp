@@ -92,3 +92,9 @@ Route::get('/smartphone/hapusall', 'SmartphoneController@hapusall')->middleware(
 Route::get('/barangmasuk', 'BarangMasukController@index')->middleware('ceksession');
 Route::get('/barangmasuk/tambah', 'BarangMasukController@tambah')->middleware('ceksession');
 Route::post('/barangmasuk/store', 'BarangMasukController@store')->middleware('ceksession');
+
+Route::get('/transaksi', 'TransaksiController@index')->middleware('ceksession');
+Route::get('/transaksi/tambah', 'TransaksiController@tambah')->middleware('ceksession');
+Route::post('/transaksi/store', 'TransaksiController@store')->middleware('ceksession');
+Route::get('/transaksi/edit/{id}', 'TransaksiController@edit')->middleware('ceksession');
+Route::put('/transaksi/update/{id}', 'TransaksiController@update')->middleware('ceksession');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Client;
 use App\Brand;
 use App\Toko;
+use App\Transaksi;
 
 class AdminController extends Controller
 {
@@ -14,6 +15,7 @@ class AdminController extends Controller
         $client = Client::all();
         $brand = Brand::all();
         $toko = Toko::all();
-        return view('index', ['client' => $client, 'brand' => $brand, 'toko' => $toko]);
+        $transaksi = Transaksi::where('status', '=', 1);
+        return view('index', ['client' => $client, 'brand' => $brand, 'toko' => $toko, 'transaksi' => $transaksi]);
     }
 }

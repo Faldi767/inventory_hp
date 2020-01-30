@@ -25,7 +25,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53</h3>
+                <h3>{{ $transaksi->count() }}</h3>
 
                 <p>Permintaan Selesai</p>
               </div>
