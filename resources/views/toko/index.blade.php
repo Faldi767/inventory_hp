@@ -18,13 +18,21 @@
                 <thead>
                 <tr>
                   <th>Nama Toko</th>
+                  <th>Daftar Client</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($toko as $t)
                   <tr>
-                      <td>{{ $t->nama_toko }}</td>
+                      <td style="text-align: center;vertical-align: middle;">{{ $t->nama_toko }}</td>
+                      <td style="vertical-align: middle;">
+                        @forelse($t->client as $c)
+                            <li>{{ $c->user_nama }} ({{ $c->role->nama_role }})</li>
+                          @empty
+                             <a href="{{ url('/client/tambah') }}">Tambahkan Client</a>
+                        @endforelse
+                      </td>
                       <td>
                           <a href="/toko/edit/{{ $t->id }}" class="btn btn-warning">Edit</a>
                           <button onclick="deleteConfirm({{ $t->id }})" class="btn btn-danger">Hapus</button>

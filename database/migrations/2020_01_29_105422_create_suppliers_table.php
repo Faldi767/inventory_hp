@@ -20,11 +20,13 @@ class CreateSuppliersTable extends Migration
             $table->softDeletes();
         });
 
-        DB::table('supplier')->insert(
-            array(
-                'nama_supplier' => 'PT. Xiaomi Indonesia'
-            )
-        );
+        DB::table('supplier')->insert([
+            ['nama_supplier' => 'PT. Xiaomi Indonesia'],
+            ['nama_supplier' => 'PT. OPPO Indonesia'],
+            ['nama_supplier' => 'PT. Vivo Indonesia'],
+            ['nama_supplier' => 'PT. Realme Indonesia'],
+            ['nama_supplier' => 'PT. ASUS Indonesia'],
+        ]);
     }
 
     /**

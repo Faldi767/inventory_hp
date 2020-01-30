@@ -20,11 +20,12 @@ class CreateTokosTable extends Migration
             $table->softDeletes();
         });
 
-        DB::table('toko')->insert(
-            array(
-                'nama_toko' => 'Dian Abadi Pusat'
-            )
-        );
+        DB::table('toko')->insert([
+            ['nama_toko' => 'Erafone Pusat'],
+            ['nama_toko' => 'Erafone Mall Olympic Garden'],
+            ['nama_toko' => 'Erafone Megastore Suhat'],
+            ['nama_toko' => 'Erafone Megastore MT Haryono']
+        ]);
     }
 
     /**

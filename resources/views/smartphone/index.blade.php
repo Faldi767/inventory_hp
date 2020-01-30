@@ -19,6 +19,7 @@
                 <tr>
                   <th>Nama Smartphone</th>
                   <th>Brand</th>
+                  <th>Stock</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -27,6 +28,7 @@
                   <tr>
                       <td>{{ $s->nama_smartphone }}</td>
                       <td>{{ $s->brand->nama_brand }}</td>
+                      <td>{{ $s->jumlah }}</td>
                       <td>
                           <a href="/smartphone/edit/{{ $s->id }}" class="btn btn-warning">Edit</a>
                           <button onclick="deleteConfirm({{ $s->id }})" class="btn btn-danger">Hapus</button>
@@ -38,6 +40,7 @@
                 <tr>
                     <th>Nama Smartphone</th>
                     <th>Brand</th>
+                    <th>Stock</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>

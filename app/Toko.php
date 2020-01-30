@@ -11,4 +11,9 @@ class Toko extends Model
     protected $table = 'toko';
 
     protected $fillable = ['nama_toko'];
+
+    public function client()
+    {
+        return $this->hasMany('App\Client');
+    }
 }

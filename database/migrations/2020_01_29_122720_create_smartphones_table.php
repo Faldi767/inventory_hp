@@ -17,17 +17,19 @@ class CreateSmartphonesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('brand_id');
             $table->string('nama_smartphone');
+            $table->integer('jumlah')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('brand_id')->references('id')->on('brand');
         });
-
-        DB::table('smartphone')->insert(
-            array(
-                'brand_id' => 1,
-                'nama_smartphone' => 'Note 8'
-            )
-        );
+        
+        DB::table('smartphone')->insert([
+            ['brand_id' => 1, 'nama_smartphone' => 'Redmi Note 8'],
+            ['brand_id' => 2, 'nama_smartphone' => 'A9 2020'],
+            ['brand_id' => 3, 'nama_smartphone' => 'S1 Pro'],
+            ['brand_id' => 4, 'nama_smartphone' => 'X2 Pro'],
+            ['brand_id' => 5, 'nama_smartphone' => 'ZenFone 6']
+        ]);
     }
 
     /**

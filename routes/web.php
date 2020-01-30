@@ -88,3 +88,7 @@ Route::get('/smartphone/restore/{id}', 'SmartphoneController@restore')->middlewa
 Route::get('/smartphone/restoreall', 'SmartphoneController@restoreall')->middleware('ceksession');
 Route::get('/smartphone/hapuspermanen/{id}', 'SmartphoneController@hapuspermanen')->middleware('ceksession');
 Route::get('/smartphone/hapusall', 'SmartphoneController@hapusall')->middleware('ceksession');
+
+Route::get('/barangmasuk', 'BarangMasukController@index')->middleware('ceksession');
+Route::get('/barangmasuk/tambah', 'BarangMasukController@tambah')->middleware('ceksession');
+Route::post('/barangmasuk/store', 'BarangMasukController@store')->middleware('ceksession');

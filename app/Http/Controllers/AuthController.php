@@ -28,6 +28,7 @@ class AuthController extends Controller
                 $request->session()->put('user_nama', $userdata->user_nama);
                 $request->session()->put('username', $userdata->username);
                 $request->session()->put('nama_role', $userdata->role->nama_role);
+                $request->session()->put('nama_toko', $userdata->toko->nama_toko);
                 Session::flash('success','Login berhasil.');
                 return redirect('/');
             }

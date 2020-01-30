@@ -20,11 +20,13 @@ class CreateBrandsTable extends Migration
             $table->softDeletes();
         });
 
-        DB::table('brand')->insert(
-            array(
-                'nama_brand' => 'Xiaomi'
-            )
-        );
+        DB::table('brand')->insert([
+            ['nama_brand' => 'Xiaomi'],
+            ['nama_brand' => 'OPPO'],
+            ['nama_brand' => 'Vivo'],
+            ['nama_brand' => 'Realme'],
+            ['nama_brand' => 'ASUS']
+        ]);
     }
 
     /**
