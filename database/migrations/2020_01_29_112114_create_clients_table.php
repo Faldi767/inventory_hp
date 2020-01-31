@@ -27,15 +27,29 @@ class CreateClientsTable extends Migration
             $table->foreign('toko_id')->references('id')->on('toko');
         });
 
-        DB::table('client')->insert(
-            array(
+        DB::table('client')->insert([
+            [
                 'role_id' => 1,
                 'toko_id' => 1,
-                'user_nama' => 'Muhammad Rifaldi Akbar',
-                'username' => 'Faldi767',
-                'password' => Hash::make('123456')
-            )
-        );
+                'user_nama' => 'Admin',
+                'username' => 'admin',
+                'password' => Hash::make('admin')
+            ],
+            [
+                'role_id' => 2,
+                'toko_id' => 1,
+                'user_nama' => 'gudang1',
+                'username' => 'gudang1',
+                'password' => Hash::make('gudang1')
+            ],
+            [
+                'role_id' => 2,
+                'toko_id' => 2,
+                'user_nama' => 'gudang2',
+                'username' => 'gudang2',
+                'password' => Hash::make('gudang2')
+            ]
+        ]);
     }
 
     /**

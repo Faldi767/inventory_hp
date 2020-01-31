@@ -37,7 +37,8 @@
                         </td>
                         <td>
                         @if(Session::get('nama_toko') == "Erafone Pusat" && $t->status == 0)
-                          <a href="transaksi/edit/{{ $t->id }}" class="btn btn-primary">Konfirmasi Pengiriman</a>
+                          <a href="transaksi/edit/{{ $t->id }}" class="btn btn-primary">Konfirmasi Permintaan</a>
+                          <button type="button" onclick="deleteConfirm({{ $t->id }})" class="btn btn-danger">Cancel</button>
                         @endif
                         </td>
                   </tr>
@@ -84,7 +85,7 @@
   {
     Swal.fire({
       title: 'Are you sure?',
-      text: "You still able to restore data from trash.",
+      text: "Order will be cancelled.",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -110,7 +111,7 @@
           }
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
-            window.location.href = "smartphone/hapus/" + id;
+            window.location.href = "transaksi/hapus/" + id;
           }
         })
       }

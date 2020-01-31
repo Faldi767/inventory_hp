@@ -70,7 +70,15 @@ class TransaksiController extends Controller
         $transaksi->bukti = $nama_file;
         $transaksi->status = 1;
         $transaksi->save();
-        Session::flash('success','Data berhasil diupdate.');
+        Session::flash('success','Permintaan berhasil di konfirmasi.');
+        return redirect('/transaksi');
+    }
+
+    public function delete($id) 
+    {
+        $transaksi = Transaksi::find($id);
+        $transaksi->delete();
+        Session::flash('success','Permintaan berhasil di cancel.');
         return redirect('/transaksi');
     }
 }

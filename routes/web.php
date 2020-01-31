@@ -98,3 +98,4 @@ Route::get('/transaksi/tambah', 'TransaksiController@tambah')->middleware('cekse
 Route::post('/transaksi/store', 'TransaksiController@store')->middleware('ceksession');
 Route::get('/transaksi/edit/{id}', 'TransaksiController@edit')->middleware('ceksession');
 Route::put('/transaksi/update/{id}', 'TransaksiController@update')->middleware('ceksession');
+Route::get('/transaksi/hapus/{id}', 'TransaksiController@delete')->middleware('ceksession');

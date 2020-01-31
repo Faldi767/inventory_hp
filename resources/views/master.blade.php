@@ -76,7 +76,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link active">
+            <a href="/" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Beranda
@@ -124,14 +124,17 @@
                   <p>Data Smartphone</p>
                 </a>
               </li>
+              @if(Session::get('nama_role') == "Admin")
               <li class="nav-item">
                 <a href="/toko" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Toko</p>
                 </a>
               </li>
+              @endif
             </ul>
           </li>
+          @if(Session::get('nama_toko') != "Erafone Pusat")
           <li class="nav-item">
             <a href="/transaksi/tambah" class="nav-link">
               <i class="nav-icon fas fa-inbox"></i>
@@ -140,6 +143,7 @@
               </p>
             </a>
           </li>
+          @endif
           @if(Session::get('nama_toko') == "Erafone Pusat")
           <li class="nav-item">
             <a href="/barangmasuk" class="nav-link">
