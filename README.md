@@ -10,7 +10,18 @@
 
 Ini adalah sistem informasi gudang HP berbasis web yang menggunakan Laravel Framework guna untuk melakukan transaksi barang antara gudang cabang dan pusat.
 
-## Login Credential
+## How-to
+
+**Install dependency via composer**
+- composer install
+
+**Migrate**
+- php artisan migrate
+
+**Run the project**
+- php artisan serve
+
+## Login Credential and Database Information
 
 **Admin**
 Username : admin
@@ -23,6 +34,9 @@ Password : gudang1
 **Gudang Cabang**
 Username : gudang2
 Password : gudang2
+
+**Database Info**
+DB Name : inventoryhp
 
 ## License
 
