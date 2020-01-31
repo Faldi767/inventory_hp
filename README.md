@@ -8,9 +8,9 @@
 
 ## Sistem Informasi Gudang Menggunakan Framework Laravel
 
-## Login Credential
-
 Ini adalah sistem informasi gudang HP berbasis web yang menggunakan Laravel Framework guna untuk melakukan transaksi barang antara gudang cabang dan pusat.
+
+## Login Credential
 
 **Admin**
 Username : admin
