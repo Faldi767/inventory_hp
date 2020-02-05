@@ -38,6 +38,10 @@ Password : gudang2
 **Database Info**
 DB Name : inventoryhp
 
+## Preview
+
+![laravel1](https://user-images.githubusercontent.com/22939114/73834690-c0521b00-483e-11ea-9538-4456e1051c55.PNG)
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
