@@ -42,6 +42,16 @@ DB Name : inventoryhp
 
 ![laravel1](https://user-images.githubusercontent.com/22939114/73834690-c0521b00-483e-11ea-9538-4456e1051c55.PNG)
 
+![laravel2](https://user-images.githubusercontent.com/22939114/73834769-e4adf780-483e-11ea-9310-d25b6c75f55f.PNG)
+
+![laravel3](https://user-images.githubusercontent.com/22939114/73834758-e11a7080-483e-11ea-934a-37e7002ec3ea.PNG)
+
+![laravel4](https://user-images.githubusercontent.com/22939114/73834761-e24b9d80-483e-11ea-8e0b-43d295a0b388.PNG)
+
+![laravel5](https://user-images.githubusercontent.com/22939114/73834763-e2e43400-483e-11ea-94a3-794c934141f7.PNG)
+
+![laravel6](https://user-images.githubusercontent.com/22939114/73834765-e4156100-483e-11ea-879f-65f7206c0c61.PNG)
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
