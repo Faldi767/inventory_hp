@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Toko</label>
-                        <select class="form-control" name="toko_id">
+                        <select class="form-control select2bs4" name="toko_id">
                             @foreach($toko as $t)
                                 <option value="{{ $t->id }}">{{ $t->nama_toko }}</option>
                             @endforeach
@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group">
                         <label>Smartphone</label>
-                        <select class="form-control" name="smartphone_id">
+                        <select class="form-control select2bs4" name="smartphone_id">
                             @foreach($smartphone as $sm)
                                 @if($sm->jumlah != 0)
                                 <option value="{{ $sm->id }}">{{ $sm->nama_smartphone }}</option>
@@ -57,6 +57,13 @@
 @section('pagescript')
 <!-- page script -->
 <script type="text/javascript">
+    $(function () {
+        $('.select2bs4').select2({
+            theme: 'bootstrap4',
+            placeholder: "Pilih",
+            allowClear: true
+        })
+    });
   const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',

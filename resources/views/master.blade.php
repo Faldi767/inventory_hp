@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="{{ asset('/css/dataTables.bootstrap4.css') }}">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="{{ asset('/css/tempusdominus-bootstrap-4.min.css') }}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/select2-bootstrap4.min.css') }}">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ asset('/css/icheck-bootstrap.min.css') }}">
   <!-- JQVMap -->
@@ -213,6 +216,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+<!-- Select2 -->
+<script src="{{ asset('/js/select2.full.min.js') }}"></script>
 <!-- SweetAlert2 -->
 <script src="{{ asset('/js/sweetalert2.min.js') }}"></script>
 <!-- ChartJS -->

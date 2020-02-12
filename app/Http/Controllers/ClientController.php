@@ -60,7 +60,8 @@ class ClientController extends Controller
             'user_nama' => 'required',
             'username' => 'required',
             'password' => '',
-            'role_id' => 'required'
+            'role_id' => 'required',
+            'toko_id' => 'required'
         ]);
     
         $client = Client::find($id);
@@ -70,6 +71,7 @@ class ClientController extends Controller
         $client->password = Hash::make($request->password);
         }
         $client->role_id = $request->role_id;
+        $client->toko_id = $request->toko_id;
         $client->save();
         Session::flash('success','Data berhasil diupdate.');
         return redirect('/client');

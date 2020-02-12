@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label>Brand</label>
-                        <select class="form-control" name="brand_id">
+                        <select class="form-control select2bs4" name="brand_id">
                             @foreach($brand as $b)
                                 <option value="{{ $b->id }}">{{ $b->nama_brand }}</option>
                             @endforeach
@@ -47,6 +47,13 @@
 @section('pagescript')
 <!-- page script -->
 <script type="text/javascript">
+  $(function () {
+    $('.select2bs4').select2({
+      theme: 'bootstrap4',
+      placeholder: "Pilih",
+      allowClear: true
+    })
+  });
   const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
